@@ -1,0 +1,45 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?php echo base_url('css/uikit.min.css'); ?>" />
+    <script src="<?php echo base_url('js/uikit.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/uikit-icons.min.js'); ?>"></script>
+    
+    <title>CarSharing</title>
+</head>
+<body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+    
+            <ul class="uk-navbar-nav">
+                <a class="uk-navbar-item uk-logo" href="<?php echo site_url(); ?>">CarSharing</a>
+            </ul>
+    
+        </div>
+
+        <div class="uk-navbar-right">
+
+            <ul class="uk-navbar-nav">
+                <li><a href="<?php echo site_url('login'); ?>">Logowanie</a></li>
+                <li><a href="<?php echo site_url('register'); ?>">Rejestracja</a></li>
+                <li>
+                    <a href="#">Maciej Stosio</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="#">Wyloguj</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+    
+        </div>
+    
+    </nav>
