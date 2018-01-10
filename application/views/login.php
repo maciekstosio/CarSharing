@@ -1,10 +1,10 @@
 
-    <form class="uk-position-center uk-overlay uk-overlay-default uk-text-center">
+    <?php echo form_open('user/auth', array("class" => "uk-position-center uk-overlay uk-overlay-default uk-text-center")); ?>
         <h2>Logowanie</h2>
         <div class="uk-margin">
             <div class="uk-inline">
                 <a class="uk-form-icon" href="#" uk-icon="icon: mail"></a>
-                <input class="uk-input uk-form-danger" name="q" type="text" placeholder="E-mail">
+                <input class="uk-input uk-form-danger" name="email" type="text" placeholder="E-mail">
             </div>
         </div>
     
