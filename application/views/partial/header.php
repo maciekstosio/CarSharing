@@ -54,3 +54,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <p><?php echo get_alert_message(); ?></p>
     </div>
     <?php endif; ?>
+
+    <?php if(logged_id()) : ?>
+    <div class="uk-grid-small" uk-grid>
+        <div class="uk-width-1-6">      
+            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                <li class="uk-active"><a href="<?php echo site_url(); ?>"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Dashboard</a></li>
+                <li><a href="<?php echo site_url("car/add"); ?>"><span class="uk-margin-small-right" uk-icon="icon: plus"></span> Add car</a></li>
+                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: search"></span> Search</a></li>
+            </ul>
+        </div>
+        <div class="uk-width-5-6">
+
+    <?php endif; ?>
