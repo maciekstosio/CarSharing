@@ -55,6 +55,21 @@ class User extends CI_Controller {
                 redirect($_SERVER['HTTP_REFERER']);
         }
 
+        public function planer() {
+                if(!logged_id()) redirect();
+
+                $this->load->view('partial/header');
+                $this->load->view('planer');
+                $this->load->view('partial/footer');             
+        }
+
+        public function add_planes() {
+                if (!logged_id()) redirect("user");
+                echo '<pre>';
+                var_dump($this -> input -> post());
+                echo '</pre>';       
+        }
+
         public function logout() {
                 logout();
                 redirect( $_SERVER['HTTP_REFERER']);

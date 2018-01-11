@@ -8,9 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='stylesheet' type='text/css' href="<?php echo base_url("js/css/smoothness/jquery-ui-1.8.11.custom.css"); ?>" />
-    <link rel='stylesheet' type='text/css' href="<?php echo base_url("js/css/smoothness/jquery.weekcalendar.css"); ?>" />
+    <link rel='stylesheet' type='text/css' href="<?php echo base_url("css/jquery-ui-1.8.11.custom.css"); ?>" />
+    <link rel='stylesheet' type='text/css' href="<?php echo base_url("css/jquery.weekcalendar.css"); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('css/uikit.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/app.css'); ?>" />
     <script src="<?php echo base_url('js/uikit.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/uikit-icons.min.js'); ?>"></script>
     <title>CarSharing</title>
@@ -57,12 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php endif; ?>
 
     <?php if(logged_id()) : ?>
-    <div class="uk-grid-small" uk-grid>
+    <div class="uk-grid-small" id="container" uk-grid>
         <div class="uk-width-1-6">      
             <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-                <li class="uk-active"><a href="<?php echo site_url(); ?>"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Dashboard</a></li>
+                <li class="uk-active"><a href="<?php echo site_url(); ?>"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
                 <li><a href="<?php echo site_url("car/add"); ?>"><span class="uk-margin-small-right" uk-icon="icon: plus"></span> Add car</a></li>
-                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: search"></span> Search</a></li>
+                <li><a href="<?php echo site_url("user/planer"); ?>"><span class="uk-margin-small-right" uk-icon="icon: future"></span> Create plan</a></li>
+                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: social"></span> Matcher</a></li>
             </ul>
         </div>
         <div class="uk-width-5-6">

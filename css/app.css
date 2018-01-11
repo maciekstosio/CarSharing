@@ -1,0 +1,17 @@
+#container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.uk-button-success {
+    color: #fff;
+    background: #32d296;
+}
+
+table, 
+th {
+    text-align: center!important;
+}
+footer {
+    margin-top: 100px;
+}
