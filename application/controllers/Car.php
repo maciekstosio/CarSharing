@@ -19,15 +19,15 @@ class Car extends CI_Controller {
 
     public function add_car() {
         if (!logged_id()) redirect("user");
-        echo '<pre>';
-        var_dump($this -> input -> post());
+
         $parsed_calendar=$this->parse_calendar($this -> input -> post());
+
         if($parsed_calendar!=0){
             $this->parse_from_json($parsed_calendar);
         }else{
-                                        //uzupelnic
+            error('System error');
         }
-        echo '</pre>';
+        redirect( $_SERVER['HTTP_REFERER']);
     }
 
     private function parse_calendar($input){
@@ -56,10 +56,10 @@ class Car extends CI_Controller {
             $parsed[] = (json_decode($a,1));
         }
         if($this->Car_model->insert_new_availabilities($parsed)){
-            echo "ok";
+            error("New car added!");
+            redirect();
         }else{
-            echo "not ok";
+            error("Error while adding new car");
         }
-    
     }
 }

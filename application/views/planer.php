@@ -1,28 +1,6 @@
 
     <?php echo form_open('car/add_car'); ?>
-        <h3>New car</h3>
-        <div class="uk-child-width-1-3" uk-grid>
-            <div>
-                <div class="uk-margin">
-                    <input class="uk-input" type="text" name="plates" placeholder="Car plates">
-                </div>
-            </div>
-            <div>
-                <div class="uk-margin">
-                    <select class="uk-select">
-                    <option>Car</option>
-                        <?php foreach($brand as $row): ?>
-                            <option><?php echo $row->name; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div class="uk-margin">
-                    <input class="uk-input" type="number" placeholder="Price">
-                </div>
-            </div>
-        </div>
+        <h3>Prepare your timetable</h3>
         <div class="uk-text-center uk-margin-top">
             <script type='text/javascript' src="<?php echo base_url("js/jquery-1.4.4.min.js"); ?>"></script>
             <script type='text/javascript' src="<?php echo base_url("js/jquery-ui-1.8.11.custom.min.js"); ?>"></script>
@@ -61,7 +39,7 @@
                                 id: id+1, 
                                 start: new Date(calEvent.start),
                                 end: new Date(calEvent.end),
-                                title: "Available"
+                                title: "Book"
                             })
 
 
@@ -83,6 +61,6 @@
             </script>
             <div id="calendar"></div>
             <input type="hidden" name="calendar" id="calendar_data" value=""/>
-            <button class="uk-button uk-button-primary" type="submit">Gotowe</button>
+            <button class="uk-button uk-button-primary uk-margin-top" type="submit">Ready</button>
         </div>
     </form>
