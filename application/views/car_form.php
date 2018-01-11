@@ -1,22 +1,25 @@
 
     <?php echo form_open('car/add_car'); ?>
         <h3>New car</h3>
-        <div class="uk-child-width-1-2" uk-grid>
+        <div class="uk-child-width-1-3" uk-grid>
+            <div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" name="plates" placeholder="Car plates">
+                </div>
+            </div>
             <div>
                 <div class="uk-margin">
                     <select class="uk-select">
-                    <option>Brand</option>
-                        <?php 
-                            foreach($brand as $row){
-                               echo "<option>" . $row->name . "</option>";
-                            }
-                        ?>
+                    <option>Car</option>
+                        <?php foreach($brand as $row): ?>
+                            <option><?php echo $row->name; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
             <div>
                 <div class="uk-margin">
-                    <input class="uk-input" type="number" placeholder="Cena">
+                    <input class="uk-input" type="number" placeholder="Price">
                 </div>
             </div>
         </div>
