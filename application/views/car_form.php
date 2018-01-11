@@ -5,8 +5,12 @@
             <div>
                 <div class="uk-margin">
                     <select class="uk-select">
-                        <option>Brand</option>
-                        <option>Option 02</option>
+                    <option>Brand</option>
+                        <?php 
+                            foreach($brand as $row){
+                               echo "<option>" . $row->name . "</option>";
+                            }
+                        ?>
                     </select>
                 </div>
             </div>

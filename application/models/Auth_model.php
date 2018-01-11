@@ -11,7 +11,7 @@ class Auth_model extends CI_Model {
     }
 
     public function register($email, $password, $name = NULL, $surname = NULL) {
-        if ($query = $this->db->query("INSERT INTO users VALUES(NULL, ?, ?, ?, ?, ?, ?)", array($name, $surname, crypt($password), $email, time(), time()))) {
+        if ($query = $this->db->query("INSERT INTO users VALUES(NULL, ?, ?, ?, ?, ?, ?)", array($email, $name, $surname, crypt($password), time(), time()))) {
             if ($this->db->affected_rows() === 1) return true;
         }
         return false;
