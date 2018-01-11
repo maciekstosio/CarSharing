@@ -14,4 +14,11 @@ class Car extends CI_Controller {
         $this->load->view('car_form');
         $this->load->view('partial/footer');
     }
+
+    public function add_car() {
+        if (!logged_id()) redirect("user");
+        echo '<pre>';
+        var_dump($this -> input -> post());
+        echo '</pre>';
+    }
 }

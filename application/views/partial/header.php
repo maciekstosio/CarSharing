@@ -8,10 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href="<?php echo base_url("js/css/smoothness/jquery-ui-1.8.11.custom.css"); ?>" />
+    <link rel='stylesheet' type='text/css' href="<?php echo base_url("js/css/smoothness/jquery.weekcalendar.css"); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('css/uikit.min.css'); ?>" />
     <script src="<?php echo base_url('js/uikit.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/uikit-icons.min.js'); ?>"></script>
-    
     <title>CarSharing</title>
 </head>
 <body>
