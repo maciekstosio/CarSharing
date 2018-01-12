@@ -53,11 +53,10 @@ class Car_model extends CI_Model {
     }
 
     public function get_user_cars($uid) {
-        $query = $this ->db-> query('SELECT license_plate, price, user, CONCAT(brands.name, " ", models.name) as type, (SELECT AVG(active) FROM availability WHERE car=license_plate) as active, (SELECT COUNT(active) FROM availability WHERE car=license_plate) as availability_count
+        $query = $this->db->query('SELECT license_plate, price, user, CONCAT(brands.name, " ", models.name) as type, (SELECT AVG(active) FROM availability WHERE car=license_plate) as active, (SELECT COUNT(active) FROM availability WHERE car=license_plate) as availability_count
                                         FROM `cars`
                                         LEFT JOIN models ON cars.model = models.id 
                                         LEFT JOIN brands ON models.brand = brands.id WHERE user=?', array($uid));
-        
 
         if($query) {
             return $query->result();

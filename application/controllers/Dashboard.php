@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
                 if (!logged_id()) redirect("user");
                 
                 $this->load->model("Car_model");
-                
+              
                 $data = array(
                     "my_cars" => $this->Car_model->get_user_cars(logged_id())
                 );
