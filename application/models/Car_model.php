@@ -1,6 +1,17 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Car_model extends CI_Model {
+
+    public function update_availability($id,$date,$start,$end){
+        
+           if(!$query = $this->db->query("UPDATE `availability` SET `date` = ?, `start`= ?, `end`= ? WHERE user=?  ",array($date,$start,$end,$id))){
+               $error = $this->db->error();
+               return 0;
+           }
+      
+       return 1;
+    }
+
     public function get_possible_brands() {
         if ($query = $this->db->query("SELECT DISTINCT name FROM brands")) {
             if ($query->num_rows() >0) {
