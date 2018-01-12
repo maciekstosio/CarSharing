@@ -17,17 +17,18 @@ class Request_model extends CI_Model {
         return 0;
     }
     
-    public function accept_request($request_id, $uid) {
-        if ($this->db->query("UPDATE `availability` SET status=2 WHERE id=?", array($request_id))) {
+    public function accept_request($request_id) {
+        if ($this->db->query("UPDATE requests SET status=2 WHERE id=?", array($request_id))) {
             if ($this->db->affected_rows() === 1) {
                 return 1;
             }
         }
+        var_dump($this->db->error());
         return 0;
     }
 
     public function decline_request($request_id) {
-        if ($this->db->query("UPDATE `availability` SET status=3 WHERE id=?", array($request_id))) {
+        if ($this->db->query("UPDATE requests SET status=3 WHERE id=?", array($request_id))) {
             if ($this->db->affected_rows() === 1) {
                 return 1;
             }
@@ -45,7 +46,7 @@ class Request_model extends CI_Model {
     }
 
     public function get_sent_requests($uid) {
-        $query = $this->db->query('SELECT * FROM requests WHERE user = ? AND status = 1', array($uid));
+        $query = $this->db->query('SELECT requests.*, request_states.name status_name FROM requests LEFT JOIN request_states ON requests.status = request_states.id WHERE user = ?', array($uid));
 
         if($query) {
             return $query->result();
@@ -54,7 +55,7 @@ class Request_model extends CI_Model {
     }
 
     public function get_recived_requests($uid) {
-        $query = $this->db->query('SELECT * FROM requests WHERE car IN (SELECT license_plate FROM cars WHERE user = ?) AND status = 1', array($uid));
+        $query = $this->db->query('SELECT requests.*, request_states.name status_name FROM requests LEFT JOIN request_states ON requests.status = request_states.id WHERE car IN (SELECT license_plate FROM cars WHERE user = ?)', array($uid));
 
         if($query) {
             return $query->result();

@@ -132,7 +132,7 @@ class Car extends CI_Controller {
     public function add_request(){
         if (!logged_id()) redirect();
         $this->load->model('request_model');
-        
+
         if($this->request_model->add_request($this->input->post('car'), logged_id(), $this->input->post('date'), $this->input->post('from'), $this->input->post('to'))) {
             success("Request has been sent.");
         } else {

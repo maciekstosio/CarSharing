@@ -53,15 +53,19 @@
                 </thead>
                 <tbody>
                     <?php if($recived_requests): ?>
-                        <?php foreach($my_cars as $row) : ?>
+                        <?php foreach($recived_requests as $row) : ?>
                             <tr>
                                 <td><?php echo $row->car; ?></td>
                                 <td><?php echo $row->date; ?></td>
-                                <td><?php echo $row->start; ?>$</td>
-                                <td><?php echo $row->end; ?>$</td>
+                                <td><?php echo $row->start; ?></td>
+                                <td><?php echo $row->end; ?></td>
                                 <td>
-                                    <a class="uk-button uk-button-success" href='<?php echo site_url("car/accept_request/".$row->id); ?>' type="button">Activate</a>
-                                    <a class="uk-button uk-button-danger" href='<?php echo site_url("car/decline_request/".$row->id); ?>' type="button">Deactivate</a>
+                                    <?php if($row->status == 1): ?>
+                                        <a class="uk-button uk-button-success" href='<?php echo site_url("car/accept_request/".$row->id); ?>' type="button">Accept</a>
+                                        <a class="uk-button uk-button-danger" href='<?php echo site_url("car/decline_request/".$row->id); ?>' type="button">Decline</a>
+                                    <?php else: ?>
+                                        <b><?php echo $row->status_name; ?></b>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -123,10 +127,14 @@
                             <tr>
                                 <td><?php echo $row->car; ?></td>
                                 <td><?php echo $row->date; ?></td>
-                                <td><?php echo $row->start; ?>$</td>
-                                <td><?php echo $row->end; ?>$</td>
+                                <td><?php echo $row->start; ?></td>
+                                <td><?php echo $row->end; ?></td>
                                 <td>
-                                    <a class="uk-button uk-button-danger" href='<?php echo site_url("car/cancel_request/".$row->id); ?>' type="button">Cancel</a>
+                                    <?php if($row->status == 1): ?>
+                                        <a class="uk-button uk-button-danger" href='<?php echo site_url("car/cancel_request/".$row->id); ?>' type="button">Cancel</a>
+                                    <?php else: ?>
+                                        <b><?php echo $row->status_name; ?></b>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
