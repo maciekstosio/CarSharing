@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
                 <li class="uk-active"><a href="<?php echo site_url(); ?>"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
                 <li><a href="<?php echo site_url("car/add"); ?>"><span class="uk-margin-small-right" uk-icon="icon: plus"></span> Add car</a></li>
-                <li><a href="<?php echo site_url("user/planer"); ?>"><span class="uk-margin-small-right" uk-icon="icon: future"></span> Create plan</a></li>
+                <li><a href="<?php echo site_url("planer/my_planer"); ?>"><span class="uk-margin-small-right" uk-icon="icon: future"></span> Create plan</a></li>
                 <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: social"></span> Matcher</a></li>
             </ul>
         </div>
