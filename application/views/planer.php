@@ -60,7 +60,7 @@
 
             </script>
             <div id="calendar"></div>
-            <input type="hidden" name="calendar" id="calendar_data" value=""/>
+            <input type="hidden" name="calendar" id="calendar_data" value="<?php var_dump($calendar); echo $calendar; ?>"/>
             <button class="uk-button uk-button-primary uk-margin-top" type="submit">Ready</button>
         </div>
     </form>

@@ -6,19 +6,47 @@ class Planer extends CI_Controller {
     public function index() {
         if(!logged_id()) redirect();
 
-        $this->load->view('partial/header');
-        $this->load->view('planer');
-        $this->load->view('partial/footer');             
-}
 
-    public function my_planer() {
-        if (!logged_id()) redirect("user");
+        $this->load->model('Planer_model');
+        $data=$this->Planer_model->get_plans(logged_id());
     
+        $result=$this->parse_it($data);
+    
+        //var_dump($result);
+        
         $this->load->view('partial/header');
-        $this->load->view('planer');
+        $this->load->view('planer',$result);
         $this->load->view('partial/footer');
+        
+                 
     }
 
+    private function parse_it($data){
+        $my=array_fill_keys(array('id','start','end','title'),'');
+        $god= array();
+        foreach($data as  $row ){
+            $my['id'] ="1";
+            $my['start']=$row->date."T".$row->start.":00.000Z";
+            $my['end']=$row->date."T".$row->end.":00.000Z";
+            $my['title']="noice";
+            $god[]=$my;
+        }
+        return $this->parse_to_json($god);
+
+    }
+
+    private function parse_to_json($data){
+
+        $moj_string="";
+        foreach($data as $little){
+            $moj_string.=json_encode($little).",";
+        }
+        $moj_string=substr($moj_string,0,-1);
+        $moj_string="{\"events\":[".$moj_string."]}";
+
+        $array=['calendar'=>$moj_string];
+        return $array;
+    }
 
     public function add_planes() {
         if (!logged_id()) redirect("user");

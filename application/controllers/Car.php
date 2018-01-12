@@ -6,6 +6,7 @@ class Car extends CI_Controller {
         if (!logged_id()) redirect("user");
         $this->load->model('Car_model');
         $data['brand']=$this->Car_model->get_possible_brands();
+        //$cal_data=$this->Car_model->get_cal_availabilities(logged_id());
         $this->load->view('partial/header');
         $this->load->view('car_form', $data);
         $this->load->view('partial/footer');
