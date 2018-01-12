@@ -93,7 +93,7 @@
             </table>
         </div>
         <div>
-            <h2>Sended requests</h2>
+            <h2>Sent requests</h2>
             <table class="uk-table uk-table-middle uk-table-divider">
                 <thead>
                     <tr>
@@ -110,14 +110,14 @@
                         <td>12 Paź 1997</td>
                         <td>12:30</td>
                         <td>15:00</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Cancal</button></td>
+                        <td><button class="uk-button uk-button-danger" type="button">Cancel</button></td>
                     </tr>
                     <tr>
                         <td>Toyota Corolla</td>
                         <td>15 Paź 1997</td>
                         <td>12:30</td>
                         <td>15:00</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Cancal</button></td>
+                        <td><button class="uk-button uk-button-danger" type="button">Cancel</button></td>
                     </tr>
                 </tbody>
             </table>

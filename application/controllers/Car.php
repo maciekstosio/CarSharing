@@ -20,10 +20,12 @@ class Car extends CI_Controller {
     public function add_car() {
         if (!logged_id()) redirect("user");
 
+        $plates = $this->input->post('plates');
+       
         $parsed_calendar=$this->parse_calendar($this -> input -> post());
 
         if($parsed_calendar!=0){
-            $this->parse_from_json($parsed_calendar);
+            $this->parse_from_json($parsed_calendar,$plates);
         }else{
             error('System error');
         }
@@ -49,13 +51,13 @@ class Car extends CI_Controller {
         return($parsed_array);
     }
 
-    private function parse_from_json($parsed_calendar){
+    private function parse_from_json($parsed_calendar,$plates){
         $parsed = array();
         $this->load->model('Car_model');
         foreach($parsed_calendar as $a){
             $parsed[] = (json_decode($a,1));
         }
-        if($this->Car_model->insert_new_availabilities($parsed)){
+        if($this->Car_model->insert_new_availabilities($parsed,$plates)){
             error("New car added!");
             redirect();
         }else{
