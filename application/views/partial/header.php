@@ -35,14 +35,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="#"><?php echo logged_name(); ?></a>
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li><a href="#">Ustawienia</a></li>
-                                <li><a href="<?php echo site_url('user/logout'); ?>">Wyloguj</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="<?php echo site_url('user/logout'); ?>">Log out</a></li>
                             </ul>
                         </div>
                     </li>
                 <?php else: ?>
-                    <li><a href="<?php echo site_url('user'); ?>">Logowanie</a></li>
-                    <li><a href="<?php echo site_url('user/join'); ?>">Rejestracja</a></li>
+                    <li><a href="<?php echo site_url('user'); ?>">Log in</a></li>
+                    <li><a href="<?php echo site_url('user/join'); ?>">Sign Up</a></li>
                 <?php endif; ?>
             </ul>
     

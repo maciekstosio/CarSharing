@@ -27,11 +27,11 @@ class User extends CI_Controller {
                 $password = $this->input->post('password');
                 $row = $this->auth_model->auth($email, $password);
 
-                if($row->id) {
+                if($row && $row->id) {
                         login($row->id, $email, $row->name, $row->surname);
-                        success("Zalogowano");
+                        success("Logged in");
                 } else {
-                        error("Przepraszamy wystapił błąd");
+                        error("Unable to log in.");
                 }
 
                 redirect($_SERVER['HTTP_REFERER']);

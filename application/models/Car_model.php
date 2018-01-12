@@ -12,6 +12,19 @@ class Car_model extends CI_Model {
         return 0;
     }
 
+    public function insert_new_car($plates,$price,$user){
+        $model="1";
+        $year = "2012";
+        $latidude = "0";
+        $attitude = "0";
+        if(!$query = $this->db->query("INSERT INTO cars VALUES(?, ?, ?, ?, ?, ?, ?)", array($user,$plates,$model, $year, $latidude,$attitude, $price))){
+            return 0;
+        }else{
+            return 1;
+        }
+
+    }
+
     public function insert_new_availabilities($parsed,$plates){
 
         $this->db->query("START TRANSACTION");
