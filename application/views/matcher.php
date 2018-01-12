@@ -20,7 +20,13 @@
                             <td><?php echo $row->pdate." ".$row->pstart."-".$row->pend; ?></td>
                             <td><?php echo round($row->diff * $row->price, 2); ?>$</td>
                             <td>
-                                <a class="uk-button uk-button-success" href="#" type="button">Request</a>
+                                <?php echo form_open('car/add_request'); ?>
+                                    <input type="hidden" name="car" value="<?php echo $row->car; ?>"/>
+                                    <input type="hidden" name="date" value="<?php echo $row->pdate; ?>"/>
+                                    <input type="hidden" name="from" value="<?php echo $row->pstart; ?>"/>
+                                    <input type="hidden" name="to" value="<?php echo $row->pend; ?>"/>
+                                    <button class="uk-button uk-button-success" type="submit">Request</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
