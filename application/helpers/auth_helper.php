@@ -32,7 +32,7 @@ if ( ! function_exists('login')) {
 		$CI =& get_instance();
 		$CI->session->id=$id;
 		$CI->session->email=$email;
-		$CI->session->name = (strlen($name) ? (strlen($surname) ? $name + " " + $surname : $name) : "");
+		$CI->session->name = (strlen($name) ? (strlen($surname) ? $name." ".$surname : $name) : "");
 		$CI->session->browser=$CI->input->user_agent();
 	}
 }

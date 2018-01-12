@@ -12,7 +12,7 @@ class Car_model extends CI_Model {
         return 0;
     }
 
-    public function insert_new_availabilities($parsed){
+    public function insert_new_availabilities($parsed,$plates){
 
         $this->db->query("START TRANSACTION");
 
@@ -27,7 +27,7 @@ class Car_model extends CI_Model {
             $start = substr($big['start'],11,5);
             $end = substr($big['end'],11,5);
                
-            if(!$query = $this->db->query("INSERT INTO availability VALUES(NULL, ?, ?, ?, ?, ?)", array("DW 5555",$date, $start, $end, $active))){
+            if(!$query = $this->db->query("INSERT INTO availability VALUES(NULL, ?, ?, ?, ?, ?)", array($plates,$date, $start, $end, $active))){
                 $error = $this->db->error();
                 $this->db->query("ROLLBACK");
                 return 0;

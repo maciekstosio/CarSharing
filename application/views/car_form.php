@@ -19,7 +19,7 @@
             </div>
             <div>
                 <div class="uk-margin">
-                    <input class="uk-input" type="number" placeholder="Price">
+                    <input class="uk-input" type="number" min="0" max="999" placeholder="Price">
                 </div>
             </div>
         </div>
@@ -45,6 +45,11 @@
                         hourLine: true,
                         newEventText: "Available",
                         data: eventData,
+                        businessHours: {
+                            end: 0,
+                            limitDisplay: false,
+                            start: 0
+                        },
                         height: function() {
                             return 500
                         },
@@ -53,6 +58,7 @@
                                 $event.css('backgroundColor', '#aaa');
                                 $event.find('.time').css({'backgroundColor': '#999', 'border':'1px solid #888'});
                             }
+                            console.log(this)
                         },
                         eventNew: function(calEvent, $event) {
                             var ids = eventData.events.map(function(item){ return item.id})
@@ -83,6 +89,6 @@
             </script>
             <div id="calendar"></div>
             <input type="hidden" name="calendar" id="calendar_data" value=""/>
-            <button class="uk-button uk-button-primary" type="submit">Gotowe</button>
+            <button class="uk-button uk-button-primary uk-margin-top" type="submit">Gotowe</button>
         </div>
     </form>
