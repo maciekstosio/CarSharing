@@ -8,6 +8,10 @@
     background: #32d296;
 }
 
+a.uk-button-success:hover {
+    color: #fff;
+}
+
 table, 
 th {
     text-align: center!important;

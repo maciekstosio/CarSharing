@@ -14,15 +14,17 @@
                     <?php if($my_cars): ?>
                     <?php foreach($my_cars as $row) : ?>
                         <tr>
-                            <td><?php echo $row->license_plate; ?></td>
+                            <td><a href='<?php echo site_url("car/view/".$row->license_plate); ?>'><?php echo $row->license_plate; ?></a></td>
                             <td><?php echo $row->type; ?></td>
                             <td><?php echo $row->price; ?>$</td>
                             <td>
-                                <?php if($row->active < 0): ?>
-                                    <button class="uk-button uk-button-success" type="button">Activate</button>
-                                <?php endif; ?>
-                                <?php if($row->active > 0): ?>
-                                    <button class="uk-button uk-button-danger" type="button">Deactivate</button>
+                                <?php if($row->availability_count>0): ?>
+                                    <?php if($row->active < 1): ?>
+                                        <a class="uk-button uk-button-success" href='<?php echo site_url("car/activate/".$row->license_plate); ?>' type="button">Activate</a>
+                                    <?php endif; ?>
+                                    <?php if($row->active > 0): ?>
+                                        <a class="uk-button uk-button-danger" href='<?php echo site_url("car/deactivate/".$row->license_plate); ?>' type="button">Deactivate</a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </td>
                         </tr>
