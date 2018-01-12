@@ -19,7 +19,7 @@
             </div>
             <div>
                 <div class="uk-margin">
-                    <input class="uk-input" type="number" min="0" max="999" placeholder="Price">
+                    <input class="uk-input" type="number" min="0" max="999" name="price" placeholder="Price">
                 </div>
             </div>
         </div>
