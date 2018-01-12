@@ -19,15 +19,7 @@
             </div>
             <div>
                 <div class="uk-margin">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <input class="uk-input" type="number" name="price" placeholder="Price">
-=======
-                    <input class="uk-input" type="number" min="0" max="999" placeholder="Price">
->>>>>>> 581f1290d33bddd4f037b86d0481fc2fa5b8a9bd
-=======
-                    <input class="uk-input" type="number" min="0" max="999" placeholder="Price">
->>>>>>> 581f1290d33bddd4f037b86d0481fc2fa5b8a9bd
+                    <input class="uk-input" type="number" min="0" max="999" name="price" placeholder="Price">
                 </div>
             </div>
         </div>
@@ -97,14 +89,6 @@
             </script>
             <div id="calendar"></div>
             <input type="hidden" name="calendar" id="calendar_data" value=""/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <button class="uk-button uk-button-primary" type="submit">Ready</button>
-=======
             <button class="uk-button uk-button-primary uk-margin-top" type="submit">Gotowe</button>
->>>>>>> 581f1290d33bddd4f037b86d0481fc2fa5b8a9bd
-=======
-            <button class="uk-button uk-button-primary uk-margin-top" type="submit">Gotowe</button>
->>>>>>> 581f1290d33bddd4f037b86d0481fc2fa5b8a9bd
         </div>
     </form>
