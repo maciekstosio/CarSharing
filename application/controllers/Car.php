@@ -129,4 +129,70 @@ class Car extends CI_Controller {
             error("Error while adding new car");
         }
     }
+
+    public function add_request(){
+        if (!logged_id()) redirect();
+        $this->load->model('request_model');
+
+        if($this->request_model->add_request($this->input->post('car'), logged_id(), $this->input->post('date'), $this->input->post('from'), $this->input->post('to'))) {
+            success("Request has been sent.");
+        } else {
+            error("Failed to send request.");
+        }
+        redirect($_SERVER['HTTP_REFERER']);        
+    }
+
+    public function accept_request() {
+        if (!logged_id()) redirect();
+        if(!$this->uri->segment(3)) redirect();
+
+        $this->load->model("request_model");
+        $request = $this->request_model->get_request($this->uri->segment(3));
+
+        if($request->user2!==logged_id()) redirect();
+        
+        if($this->request_model->accept_request($this->uri->segment(3))) {
+            success("Request has been activated.");
+        } else {
+            error("Error has occurred.");
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function decline_request() {
+        if (!logged_id()) redirect();
+        if(!$this->uri->segment(3)) redirect();
+
+        $this->load->model("request_model");
+        $request = $this->request_model->get_request($this->uri->segment(3));
+
+        if($request->user2!==logged_id()) redirect();
+        
+        if($this->request_model->decline_request($this->uri->segment(3))) {
+            success("Request has been declined.");
+        } else {
+            error("Error has occurred.");
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function cancel_request() {
+        if (!logged_id()) redirect();
+        if(!$this->uri->segment(3)) redirect();
+
+        $this->load->model("request_model");
+        $request = $this->request_model->get_request($this->uri->segment(3));
+
+        if($request->user!==logged_id()) redirect();
+        
+        if($this->request_model->cancel_request($this->uri->segment(3))) {
+            success("Request has been canceled.");
+        } else {
+            error("Error has occurred.");
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
 }

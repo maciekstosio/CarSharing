@@ -14,7 +14,7 @@ class Car_model extends CI_Model {
 
     public function get_possible_brands() {
         if ($query = $this->db->query("SELECT DISTINCT name FROM brands")) {
-            if ($query->num_rows() >0) {
+            if ($query->num_rows() > 0) {
                 return $query->result();
             }else {
                 return 0;
