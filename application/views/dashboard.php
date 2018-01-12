@@ -11,18 +11,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>XC 666</td>
-                        <td>Toyota Prius</td>
-                        <td>342$</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Deactivate</button></td>
-                    </tr>
-                    <tr>
-                        <td>XC 6D63</td>
-                        <td>Toyota Corolla</td>
-                        <td>342$</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Deactivate</button></td>
-                    </tr>
+                    <?php if($my_cars): ?>
+                    <?php foreach($my_cars as $row) : ?>
+                        <tr>
+                            <td><?php echo $row->license_plate; ?></td>
+                            <td><?php echo $row->type; ?></td>
+                            <td><?php echo $row->price; ?>$</td>
+                            <td>
+                                <?php if($row->active < 0): ?>
+                                    <button class="uk-button uk-button-success" type="button">Activate</button>
+                                <?php endif; ?>
+                                <?php if($row->active > 0): ?>
+                                    <button class="uk-button uk-button-danger" type="button">Deactivate</button>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="4">
+                                You don't have any cars.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
