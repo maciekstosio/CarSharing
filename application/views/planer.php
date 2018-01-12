@@ -12,7 +12,6 @@
                 var day = new Date().getDate();
 
                 $(document).ready(function() {
-                    console.log($('input#calendar_data').val().length === 0);
                     var eventData = $('input#calendar_data').val().length === 0
                                     ?  {events: []}
                                     :  JSON.parse($('input#calendar_data').val());
@@ -60,7 +59,7 @@
 
             </script>
             <div id="calendar"></div>
-            <input type="hidden" name="calendar" id="calendar_data" value="<?php var_dump($calendar); echo $calendar; ?>"/>
+            <input type="hidden" name="calendar" id="calendar_data" value='<?php echo $calendar; ?>'/>
             <button class="uk-button uk-button-primary uk-margin-top" type="submit">Ready</button>
         </div>
     </form>
