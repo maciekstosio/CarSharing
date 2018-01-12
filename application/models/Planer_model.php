@@ -4,6 +4,9 @@ class Planer_model extends CI_Model {
    
 
     public function insert_new_plan($parsed,$user){
+        if(!$this->delete_previous_plans($user)){
+            return 0;
+        }
 
         $this->db->query("START TRANSACTION");
 
@@ -24,6 +27,21 @@ class Planer_model extends CI_Model {
         return 1;
 
     }
+
+    private function delete_previous_plans($user){
+        $this->db->query("START TRANSACTION");
+
+            if(!$query = $this->db->query("DELETE FROM plans WHERE user = ?", array($user))){
+                $error = $this->db->error();
+                $this->db->query("ROLLBACK");
+                return 0;
+            }
+
+        $this->db->query("COMMIT");
+        return 1;
+
+    }
+    
 
 }
 
