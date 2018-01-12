@@ -1,5 +1,5 @@
 
-    <?php echo form_open('car/add_car'); ?>
+    <?php echo form_open('planer/add_planes'); ?>
         <h3>Prepare your timetable</h3>
         <div class="uk-text-center uk-margin-top">
             <script type='text/javascript' src="<?php echo base_url("js/jquery-1.4.4.min.js"); ?>"></script>
