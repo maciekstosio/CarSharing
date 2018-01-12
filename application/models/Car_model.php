@@ -110,6 +110,11 @@ class Car_model extends CI_Model {
         }
         return 0;
     }
+/*
+    public function get_cal_availabilities($user){
+        if ($this->db->query("SELECT `date`,`start`,`end` FROM `availabilities` WHERE user=?", array($user))) {
+    }
+*/
 }
 
 ?>

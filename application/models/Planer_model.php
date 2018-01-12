@@ -41,6 +41,18 @@ class Planer_model extends CI_Model {
         return 1;
 
     }
+
+    public function get_plans($user){
+        if(!$query = $this->db->query("SELECT `date`,`start`,`end` FROM plans WHERE user = ?", array($user))){
+            return 0;
+        }else{
+            if($query->num_rows()==0){
+                return 0;
+            }else{
+                return $query->result();
+            }
+        }
+    }
     
 
 }
