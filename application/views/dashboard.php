@@ -11,18 +11,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>XC 666</td>
-                        <td>Toyota Prius</td>
-                        <td>342$</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Deactivate</button></td>
-                    </tr>
-                    <tr>
-                        <td>XC 6D63</td>
-                        <td>Toyota Corolla</td>
-                        <td>342$</td>
-                        <td><button class="uk-button uk-button-danger" type="button">Deactivate</button></td>
-                    </tr>
+                    <?php if($my_cars): ?>
+                    <?php foreach($my_cars as $row) : ?>
+                        <tr>
+                            <td><a href='<?php echo site_url("car/view/".$row->license_plate); ?>'><?php echo $row->license_plate; ?></a></td>
+                            <td><?php echo $row->type; ?></td>
+                            <td><?php echo $row->price; ?>$</td>
+                            <td>
+                                <?php if($row->availability_count>0): ?>
+                                    <?php if($row->active < 1): ?>
+                                        <a class="uk-button uk-button-success" href='<?php echo site_url("car/activate/".$row->license_plate); ?>' type="button">Activate</a>
+                                    <?php endif; ?>
+                                    <?php if($row->active > 0): ?>
+                                        <a class="uk-button uk-button-danger" href='<?php echo site_url("car/deactivate/".$row->license_plate); ?>' type="button">Deactivate</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="4">
+                                You don't have any cars.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
